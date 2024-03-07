@@ -23,5 +23,6 @@ public class NodeTile
         element.Spawn(new Vector3(xPos, yPos,0));
     }
     public MapElement GetMapElement() { return element; }
-
+    public float GetX () { return xPos; }
+    public float GetY () { return yPos; }
 }

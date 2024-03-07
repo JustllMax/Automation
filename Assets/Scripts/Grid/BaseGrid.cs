@@ -1,32 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class BaseGrid : MonoBehaviour
 {
 
-    [SerializeField]int gridHeight, gridWidth;
-    [SerializeField]float cellSizeX, cellSizeY;
-    [SerializeField]float anchorX, anchorY;
+    int gridHeight, gridWidth;
+    float cellSizeX, cellSizeY;
+    float anchorX, anchorY;
     List<List<NodeTile>> nodeTileGrid;
     [SerializeField]
     MapElement el;
 
     float xPos, yPos;
-    public void Init(int h, int w )
+    public void Init(int h, int w, float csx, float csy, float ax, float ay)
     {
-        nodeTileGrid = new List<List<NodeTile>>();
         gridHeight = h;
         gridWidth = w;
+        cellSizeX = csx;
+        cellSizeY = csy;   
+        anchorX = ax; 
+        anchorY = ay;
+
+        CreateGrid();
+    }
+
+    private void CreateGrid()
+    {
+        nodeTileGrid = new List<List<NodeTile>>();
         xPos = 0;
         yPos = 0;
-        for( int i = 0; i < gridHeight; i++ )
+        for (int i = 0; i < gridWidth; i++)
         {
             nodeTileGrid.Add(new List<NodeTile>());
-            for( int j = 0; j < gridWidth; j++)
+            for (int j = 0; j < gridHeight; j++)
             {
-                
-                nodeTileGrid[i].Add(new NodeTile(xPos+anchorX, yPos+anchorY));
+
+                nodeTileGrid[i].Add(new NodeTile(xPos + anchorX, yPos + anchorY));
                 nodeTileGrid[i][j].SetMapElement(el);
                 Debug.Log(nodeTileGrid[i][j].GetTileID());
                 xPos += cellSizeX;
@@ -37,12 +48,13 @@ public class BaseGrid : MonoBehaviour
 
     public void SetTile(int x, int y, NodeTile tile)
     {
-        nodeTileGrid[x][y] = tile; 
+        nodeTileGrid[x][y] = tile;
+        
     }
 
     public bool GetTile(int x, int y, out NodeTile tile) 
     {
-        Debug.Log("Position: " + x + " " + y);
+       
         if (CheckPosition(x, y) == false) 
         { 
             tile = null;

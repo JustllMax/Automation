@@ -6,9 +6,9 @@ using UnityEngine.Tilemaps;
 
 public class BuildController : MonoBehaviour
 {
+    
     [SerializeField]
-    Tilemap targetTileMap;
-
+    GameObject P_GhostObj;
     private void Start()    
     {
  
@@ -16,17 +16,14 @@ public class BuildController : MonoBehaviour
 
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0) == true)
+     
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int gridPos = targetTileMap.WorldToCell(worldPos);
-            
-            if (GridManager.Instance.GetBaseGrid().GetTile(gridPos.x,gridPos.y, out NodeTile tile ) != false)
-            {
-                Debug.Log(tile.GetTileID());
-
-            }
+            Instantiate(P_GhostObj);
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+          
         }
     }
 }
