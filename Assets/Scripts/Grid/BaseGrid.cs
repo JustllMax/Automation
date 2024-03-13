@@ -33,6 +33,7 @@ public class BaseGrid : MonoBehaviour
         yPos = 0;
         for (int i = 0; i < gridWidth; i++)
         {
+            
             nodeTileGrid.Add(new List<NodeTile>());
             for (int j = 0; j < gridHeight; j++)
             {
@@ -40,9 +41,10 @@ public class BaseGrid : MonoBehaviour
                 nodeTileGrid[i].Add(new NodeTile(xPos + anchorX, yPos + anchorY));
                 nodeTileGrid[i][j].SetMapElement(el);
                 Debug.Log(nodeTileGrid[i][j].GetTileID());
-                xPos += cellSizeX;
+                yPos += cellSizeY;
             }
-            xPos = 0; yPos += cellSizeY;
+
+            yPos = 0; xPos += cellSizeX;
         }
     }
 
