@@ -8,6 +8,7 @@ public class GhostObject : MonoBehaviour
     [SerializeField] Color placeable, nonPlaceable;
     [SerializeField] Tilemap targetTileMap;
     [SerializeField] Transform anchorPoint;
+    [SerializeField] GameObject P_Building;
     
     SpriteRenderer spriteRenderer;
     bool canPlaceObject = true;
@@ -31,6 +32,8 @@ public class GhostObject : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1) && canPlaceObject)
         {
+            Instantiate(P_Building, transform.position, Quaternion.identity);
+            //Needs to be added to tilemap
             Debug.Log("Placed");
             Destroy(gameObject);
         }

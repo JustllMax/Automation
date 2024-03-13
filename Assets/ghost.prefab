@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -274284221
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2860982009417361707, guid: 254e5f297339b9845afb06ec285ea5a6, type: 3}
   m_Color: {r: 0, g: 1, b: 0, a: 0.47058824}
   m_FlipX: 0
   m_FlipY: 0
@@ -147,6 +147,8 @@ MonoBehaviour:
   placeable: {r: 0.0013189316, g: 1, b: 0, a: 0.47058824}
   nonPlaceable: {r: 1, g: 0, b: 0, a: 0.47058824}
   targetTileMap: {fileID: 0}
+  anchorPoint: {fileID: 0}
+  P_Building: {fileID: 2887840024409771425, guid: d6d7701ee0d4f9a4b9a51a3be657613e, type: 3}
 --- !u!1 &5550277983730608007
 GameObject:
   m_ObjectHideFlags: 0
